@@ -3,7 +3,7 @@ import { rateLimit } from "express-rate-limit";
 // กำหนดค่า rate limiter สำหรับ API ทั่วไป
 export const apiLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 นาที
-  max: 40, // 20 requests ต่อ IP ต่อนาที
+  max: 60, // 20 requests ต่อ IP ต่อนาที
   message: "Too many API requests, please try again after a minute",
 });
 
