@@ -1,4 +1,5 @@
 import BadRequestException from "@/exceptions/bad-request.exception";
+import authService from "@/services/auth.service";
 import postService from "@/services/post.service";
 import { HttpStatus } from "@/types/http.types";
 import type { NextFunction, Request, Response } from "express";
@@ -15,6 +16,22 @@ const postController: IPostController = {
     try {
       const { userId } = req.params;
       const { title, content, imgUrl } = req.body;
+
+      if (!userId) {
+        throw new BadRequestException(
+          "userId is required",
+          HttpStatus.BAD_REQUEST
+        );
+      }
+
+      const existUser = await authService.findUserById(userId);
+
+      if (!existUser) {
+        throw new BadRequestException(
+          "userId is not exist",
+          HttpStatus.BAD_REQUEST
+        );
+      }
 
       const data: {
         userId: string;

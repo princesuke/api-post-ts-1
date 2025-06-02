@@ -47,7 +47,13 @@ const authController: IAuthController = {
         phone,
       });
 
-      res.status(HttpStatus.CREATED).json(user);
+      const dataUser = {
+        id: user.id,
+        email: user.email,
+        phone: user.phone,
+      };
+
+      res.status(HttpStatus.CREATED).json(dataUser);
     } catch (error) {
       next(error);
     }

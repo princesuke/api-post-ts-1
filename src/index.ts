@@ -21,6 +21,14 @@ app.use("/api/v1/posts", apiLimiter, postRouter);
 app.use(NotFoundMiddleware.handle);
 app.use(ErrorHandler.handle);
 
+//POST: https://api-post-ts.onrender.com/api/v1/auth/login body: email, password
+//POST: https://api-post-ts.onrender.com/api/v1/auth/register body: email, password, phone
+
+//GET: https://api-post-ts.onrender.com/api/v1/posts/:userId
+//POST: https://api-post-ts.onrender.com/api/v1/posts/:userId
+//PUT: https://api-post-ts.onrender.com/api/v1/posts/:userId
+//DELETE: https://api-post-ts.onrender.com/api/v1/posts/:userId/:postId
+
 const PORT: Env["PORT"] = env.PORT;
 const NODE_ENV: Env["NODE_ENV"] = env.NODE_ENV;
 
