@@ -77,11 +77,11 @@ const postController: IPostController = {
   updatePost: async (req: Request, res: Response, next: NextFunction) => {
     try {
       //   const { userId } = req.params;
-      const { id, title, content } = req.body;
+      const { id, title, content, imgUrl } = req.body;
 
-      if (!title || !content) {
+      if (!title || !content || !imgUrl || !id) {
         throw new BadRequestException(
-          "title, content are required",
+          "id, imgUrl, title, content are required",
           HttpStatus.BAD_REQUEST
         );
       }
@@ -89,6 +89,7 @@ const postController: IPostController = {
       const updatePost = await postService.updatePost(id, {
         title,
         content,
+        imgUrl,
       });
       res.json({ message: "update post success", updatePost });
     } catch (error) {
