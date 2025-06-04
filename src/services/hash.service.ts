@@ -12,6 +12,7 @@ class HashService implements IHashService {
     memoryCost: env.HASHER_MEMORY_COST ** 15 || 2 ** 17, // ตัวอย่าง: 128 MB
     timeCost: env.HASHER_TIME_COST || 8, // ตัวอย่าง: 8 iterations
     parallelism: env.HASHER_PARALLELISM || 1, // ตัวอย่าง: 1 CPU thread
+
     // คุณอาจเพิ่ม random bytes สำหรับ salt ตรงนี้ก็ได้หากต้องการ แต่ argon2.hash จะสร้าง salt ให้เองโดย default
   };
 
