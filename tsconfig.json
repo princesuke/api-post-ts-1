@@ -12,13 +12,13 @@
     "emitDecoratorMetadata": true,
 
     // Paths
-    "baseUrl": "/src",
+    "baseUrl": "./src",
     "paths": {
       "@/*": ["*"]
     },
 
     // Import
-    "rootDir": "/src",
+    "rootDir": "./src",
 
     // Bundler mode
     "moduleResolution": "bundler",
