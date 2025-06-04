@@ -6,7 +6,8 @@ class NotFoundMiddleware {
   static handle(req: Request, _res: Response, next: NextFunction) {
     next(
       new NotFoundException(
-        `resource: ${req.method} ${req.url} could not be found on this server.`
+        `resource: ${req.method} ${req.url} could not be found on this server.`,
+        404
       )
     );
   }
